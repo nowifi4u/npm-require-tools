@@ -30,8 +30,6 @@ function unload(name) {
  * @param {Function} patcher - Function, returning a new export
  */
 function patch(name, patcher) {
-	if(!isloaded(name)) throw new Error(`Module "${name}" not found`);
-
 	const structure = require(name);
 	const structureName = require.resolve(name);
 	const patched = patcher(structure);
